@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word World</title>
+    <link href="assets/stylesheets/main.css" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+	<div class="container">
+ 	   <a href="index.html">
+ 	       <h1 class="logo">Word World</h1>
+	       <h5>Home for original stories</h5>
+	   </a>
+	   <nav>
+	       <a href="index.html">HOME</a>
+	       <a href="light novels.html">LIGHT NOVELS</a>
+	       <a href="comics.html">COMICS</a>
+	   </nav>
+	</div>
+     </header>
+     <section class="container">
+	 <div class="notice-board">
+	      <h2>Newly Published Works</h2>
+	      <ul id="noticeList">
+		  <!-- Notices will be dynamically inserted here -->
+	      </ul>
+	 </div>
+     </section>
+
+     <div class="popup-overlay" id="popupOverlay"></div> <!-- Overlay for the form -->
+
+     <section class="popup-form" id="popupForm">
+	 <form id="createAccountForm">
+	     <h2>Create an Account</h2>
+	     <label for="username">Username</label>
+	     <input type="text" id="username" name="username" required>
+
+	     <label for="email">Email</label>
+	     <input type="email" id="email" name="email" required>
+
+	     <label for="password">Password</label>
+	     <input type="password" id="password" name="password" required>
+
+	     <label for="confirmPassword">Confirm Password</label>
+	     <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+	     <button type="submit">Create Account</button>
+	     <p id="errorMessage" class="error"></p>
+	</form>
+    </section>
+
+    <!-- TEASERS -->
+
+    <section class="row">
+	<div class="grid">
+
+	   <!-- LIGHT NOVELS -->
+
+	   <section class="teasers">
+	       <a href ="light novels.html">
+		   <h5>LIGHT NOVELS</h5>
+		   <h3>Original Stories</h3>
+	       </a>
+	       <p>Enjoy a collection of original stories from around the world and have fun. You can also publish your own stories, for <b>FREE!</b></p>
+	   </section><!--
+
+	   COMICS
+
+	   --><section class="teasers">
+	       <a href="comics.html">
+		   <h5>COMICS</h5>
+		   <h3>Read Comics!</h3>
+	       </a>
+	       <p>Read your favorite comics from anywhere around the world. You can also publish your own comics for <b>FREE!</b></p>
+	  </section>
+
+        </div>
+	
+	<footer>
+	    <div class="container">
+		<small>&copy; Word World</small>
+		<nav>
+		    <a href="index.html">HOME</a>
+		    <a href="light novels.html">LIGHT NOVELS</a>
+		    <a href="comics.html">COMICS</a>
+		</nav>
+	    </div>
+	</footer>
+
+	<script src="script.js"></script>
+	
+
+	     
