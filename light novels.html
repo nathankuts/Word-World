@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Novels Publish</title>
+    <link href="assets/stylesheets/light novels.css" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <h1 class="logo">Word World</h1>
+                <h5>Home for original stories</h5>
+            </a>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="light novels.html">LIGHT NOVELS</a>
+                <a href="comics.html">COMICS</a>
+                <div class="user-options">
+                    <img src="assets/images/pic.jpg" alt="Profile Picture" class="profile-pic" id="profilePic">
+                    <a href="#" id="signOut">SIGN OUT</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <form id="publishForm" class="center-form">
+            <h2>Publish A Chapter</h2>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="content">Content</label>
+            <div id="content" name="content" contenteditable="true" class="editable" rows="10" required></div>
+            
+            <button type="submit">Publish</button>
+            <p id="publishMessage" class="success"></p>
+        </form>
+    </section>
+    <footer>
+        <div class="container">
+            <small>&copy; Word World</small>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="light novels.html">LIGHT NOVELS</a>
+                <a href="comics.html">COMICS</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="light novels.js"></script>
+</body>
+</html>
