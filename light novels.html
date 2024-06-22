@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light Novels Publish</title>
+    <title>Word World</title>
     <link href="assets/stylesheets/light novels.css" rel="stylesheet"/>
 </head>
 <body>
@@ -31,7 +31,7 @@
             <input type="text" id="title" name="title" required>
             
             <label for="content">Content</label>
-            <div id="content" name="content" contenteditable="true" class="editable" rows="10" required></div>
+            <textarea id="content" name="content" rows="10" required></textarea>
             
             <button type="submit">Publish</button>
             <p id="publishMessage" class="success"></p>
@@ -47,6 +47,7 @@
             </nav>
         </div>
     </footer>
-    <script src="light novels.js"></script>
+
+    <script src="light novel.js"></script>
 </body>
 </html>
