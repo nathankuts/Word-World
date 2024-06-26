@@ -1,0 +1,284 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+header, footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+h1, h2, h3, h4 {
+  color: #164968;
+}
+h1, h3, h4, h5, p {
+  margin-bottom: 22px;
+}
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+h3 {
+  font-size: 21px;
+  text-decoration:none;
+}
+h4 {
+  font-size: 18px;
+  text-decoration:none;
+}
+h5 {
+  color: #164968;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration:none;
+}
+strong {
+  font-weight: 400;
+}
+cite,
+em {
+  font-style: italic;
+}
+/* Custom styles to remove underline from specific sections */
+header a,
+.teasers a {
+  text-decoration: none;
+}
+/* Style header and footer */
+header .container,
+footer .container {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 1em 0;
+}
+header .logo {
+  margin-bottom: 1em; /* Add spacing between logo and navigation */
+}
+header nav {
+    display: flex;
+    justify-content: center;
+}
+.user-options {
+    position:absolute;
+    top:3em;
+    margin-left: 70em;
+    display: grid;
+    align-items: center;
+}
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right:0em;
+    margin-left:2em;
+    
+}
+
+#signOut {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#signOut:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the container holds elements side by side */
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.teasers {
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.teasers:hover, .zoom {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+}
+
+@keyframes highlightAnimation {
+  0% {
+    background-color: #ffeb3b;
+  }
+  50% {
+    background-color: #03a9f4;
+  }
+  100% {
+    background-color: #ffeb3b;
+  }
+}
+
+.highlight {
+  animation: highlightAnimation 3s infinite;
+}
+
+.highlight-novel {
+  background-color: #ffeb3b;
+}
+
+.highlight-comics {
+  background-color: #03a9f4;
+}
+
+/* Center the form within the container */
+.center-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  background: #eff0f2;
+  border-radius: 5px;
+}
+
+/* Chapter Content Styles */
+.chapter-content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.comic-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.chapter-body {
+  font-size: 1.2em;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+#nextChapterButton {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#nextChapterButton:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 0.5em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+  form label, form input, form button, form textarea {
+    width: 100%;
+  }
+}
