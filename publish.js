@@ -133,6 +133,9 @@ document.getElementById('publishForm').addEventListener('submit', function(event
     
     // Clear the form
     document.getElementById('publishForm').reset();
+    
+    //Notify script.js to update notice board
+    window.dispatchEvent(new Event('newPublication'));
 });
 
 document.getElementById('nextChapterButton').addEventListener('click', function() {
