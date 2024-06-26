@@ -86,3 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const signupButton = document.getElementById('signupButton');
+    const lightNovelsLinks = [document.getElementById('lightNovelsLink'), document.getElementById('lightNovelsTeaser')];
+    const comicsLinks = [document.getElementById('comicsLink'), document.getElementById('comicsTeaser')];
+
+    function highlightSignupButton(event) {
+        event.preventDefault(); // Prevent the default link action
+        signupButton.classList.add('highlight');
+        signupButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+            signupButton.classList.remove('highlight');
+        }, 3000); // Highlight for 3 seconds
+    }
+
+    lightNovelsLinks.forEach(link => link.addEventListener('click', highlightSignupButton));
+    comicsLinks.forEach(link => link.addEventListener('click', highlightSignupButton));
+});
