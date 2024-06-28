@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word World</title>
-    <link href="assets/stylesheets/main.css" rel="stylesheet"/>
+    <link href="main.css" rel="stylesheet"/>
 </head>
 <body>
     <header>
@@ -35,8 +35,9 @@
     <div class="popup-overlay" id="popupOverlay"></div> <!-- Overlay for the form -->
     
     <section class="popup-form" id="popupForm">
-        <form id="createAccountForm">
+        <form action="https://formspree.io/f/xzzppqdp" method="POST" id="createAccountForm">
             <h2>Create an Account</h2>
+            
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
