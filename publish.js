@@ -21,10 +21,11 @@ function loadNotices() {
 // Load notices when the page loads
 window.onload = loadNotices;
 // Form validation and redirection after signup
+// Form validation and redirection after signup
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const errorMessage = document.getElementById('errorMessage');
@@ -48,12 +49,13 @@ document.getElementById('createAccountForm').addEventListener('submit', function
 // Profile picture update and sign-out
 document.addEventListener('DOMContentLoaded', function() {
     const profilePic = document.getElementById('profilePic');
+    const profilePicInput = document.getElementById('profilePicInput');
+    const uploadPicButton = document.getElementById('uploadPicButton');
     const signOut = document.getElementById('signOut');
 
-    if (profilePic) {
-        profilePic.addEventListener('click', () => {
-            // Trigger file input or any other method to update profile picture
-            alert('Update profile picture functionality is not implemented yet.');
+    if (uploadPicButton) {
+        uploadPicButton.addEventListener('click', () => {
+            profilePicInput.click();
         });
     }
 
@@ -64,9 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'index.html';
         });
     }
-});
-//Implement Animation between sections
-document.addEventListener('DOMContentLoaded', function() {
+
+    // Implement Animation between sections
     const lightNovelsSection = document.querySelectorAll('.teasers')[0];
     const comicsSection = document.querySelectorAll('.teasers')[1];
     const publishButton = document.getElementById('signupButton');
@@ -111,33 +112,42 @@ document.addEventListener('DOMContentLoaded', function() {
     lightNovelsSection.addEventListener('mouseout', startAnimation);
     comicsSection.addEventListener('mouseout', startAnimation);
 
-    publishButton.addEventListener('click', highlightSection);
+    if (publishButton) {
+        publishButton.addEventListener('click', highlightSection);
+    }
 
     startAnimation();
-});
-document.getElementById('publishForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
-    const publishMessage = document.getElementById('publishMessage');
-    
-    // Store the new work locally (In a real application, this should be sent to the server)
-    let newWorks = JSON.parse(localStorage.getItem('newWorks')) || [];
-    newWorks.push({ title: title, content: content, link: 'light novels.html' });
-    localStorage.setItem('newWorks', JSON.stringify(newWorks));
-    
-    // Display success message
-    publishMessage.textContent = 'Chapter published successfully!';
-    publishMessage.classList.add('success');
-    
-    // Clear the form
-    document.getElementById('publishForm').reset();
-    
-    //Notify script.js to update notice board
-    window.dispatchEvent(new Event('newPublication'));
-});
 
-document.getElementById('nextChapterButton').addEventListener('click', function() {
-    window.location.href = 'publish-chapter.html';
+    document.getElementById('publishForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const title = document.getElementById('title').value.trim();
+        const content = document.getElementById('content').value.trim();
+        const publishMessage = document.getElementById('publishMessage');
+        
+        if (!title || !content) {
+            publishMessage.textContent = 'Title and content cannot be empty!';
+            publishMessage.classList.add('error');
+            return;
+        }
+        
+        // Store the new work locally (In a real application, this should be sent to the server)
+        let newWorks = JSON.parse(localStorage.getItem('newWorks')) || [];
+        newWorks.push({ title: title, content: content, link: 'light novels.html' });
+        localStorage.setItem('newWorks', JSON.stringify(newWorks));
+        
+        // Display success message
+        publishMessage.textContent = 'Chapter published successfully!';
+        publishMessage.classList.add('success');
+        
+        // Clear the form
+        document.getElementById('publishForm').reset();
+        
+        // Notify script.js to update notice board
+        window.dispatchEvent(new Event('newPublication'));
+    });
+
+    document.getElementById('nextChapterButton').addEventListener('click', function() {
+        window.location.href = 'publish-chapter.html';
+    });
 });
