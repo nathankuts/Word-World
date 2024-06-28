@@ -24,27 +24,45 @@ window.onload = loadNotices;
 // Form validation
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const errorMessage = document.getElementById('errorMessage');
-
+    
     if (password !== confirmPassword) {
-        errorMessage.textContent = 'Passwords do not match!';
+        errorMessage.textContent = "Passwords do not match.";
         return;
     }
-
-    // Clear error message
-    errorMessage.textContent = '';
-
-    // Here you would typically send the form data to the server
-    // For now, just display a success message
-    alert('Account created successfully!');
-
-    // Redirect to the publish page
-    window.location.href = 'publish.html';
+    
+    errorMessage.textContent = "";
+    
+    const formData = new FormData(this);
+    
+    fetch(this.action, {
+        method: this.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert("Account created successfully!");
+            this.reset();
+            window.location.href = 'sign in.html';
+        } else {
+            return response.json().then(data => {
+                if (data.hasOwnProperty('errors')) {
+                    errorMessage.textContent = data.errors.map(error => error.message).join(", ");
+                } else {
+                    errorMessage.textContent = "An error occurred. Please try again.";
+                }
+            });
+        }
+    }).catch(() => {
+        errorMessage.textContent = "An error occurred. Please try again.";
+    });
 });
+
 
 const signupButton = document.getElementById('signupButton');
 const popupForm = document.getElementById('popupForm');
