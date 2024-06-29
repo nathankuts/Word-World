@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').innerHTML; // Save innerHTML for rich text
 
-        // Store the title and content in local storage
-        localStorage.setItem('publishedTitle', title);
-        localStorage.setItem('publishedContent', content);
-
-        // Redirect to the published chapter page
-        window.location.href = 'published-chapter.html';
+        // Use the mock API to save the chapter
+        postPublishedChapter(title, content).then(response => {
+            if (response.status === 200) {
+                // Redirect to the published chapter page with the chapter ID
+                window.location.href = `published-chapter.html?id=${response.chapter.id}`;
+            } else {
+                // Handle error
+                alert('Failed to save chapter');
+            }
+        });
     });
 });
