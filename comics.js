@@ -8,12 +8,16 @@ document.getElementById('publishForm').addEventListener('submit', function(e) {
         reader.onload = function(event) {
             const comicImageSrc = event.target.result;
 
-            // Save the data to localStorage (or send it to your backend)
-            localStorage.setItem('chapterTitle', title);
-            localStorage.setItem('comicImageSrc', comicImageSrc);
-
-            // Redirect to chapter.html
-            window.location.href = 'chapter.html';
+            // Use the mock API to save the comic
+            postComic(title, comicImageSrc).then(response => {
+                if (response.status === 200) {
+                    // Redirect to the chapter page with the comic ID
+                    window.location.href = `chapter.html?id=${response.comic.id}`;
+                } else {
+                    // Handle error
+                    alert('Failed to save comic');
+                }
+            });
         };
         reader.readAsDataURL(comicPage);
     }
