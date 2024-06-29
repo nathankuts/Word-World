@@ -1,19 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const chapterTitle = document.getElementById('chapterTitle');
-    const chapterBody = document.getElementById('chapterBody');
-    const nextChapter = document.getElementById('nextChapter');
+    const urlParams = new URLSearchParams(window.location.search);
+    const chapterId = parseInt(urlParams.get('id'));
 
-    // Retrieve from local storage
-    const title = localStorage.getItem('publishedTitle');
-    const content = localStorage.getItem('publishedContent');
+    if (isNaN(chapterId)) {
+        document.getElementById('chapterTitle').innerText = 'No Chapter Found';
+        document.getElementById('chapterBody').innerText = 'Please publish a chapter first.';
+        return;
+    }
 
-    // Display content and title
-    chapterTitle.textContent = title;
-    chapterBody.innerHTML = content;  // Use innerHTML to preserve formatting
+    // Use the mock API to get the published chapter
+    getPublishedChapter(chapterId).then(response => {
+        if (response.status === 200) {
+            const chapter = response.data;
 
-    // Handle next chapter button click
-    nextChapter.addEventListener('click', () => {
-        // Load next chapterBody
-        alert('not yet implemented');
+            if (chapter.title && chapter.content) {
+                document.getElementById('chapterTitle').innerText = chapter.title;
+                document.getElementById('chapterBody').innerHTML = chapter.content;
+            } else {
+                document.getElementById('chapterTitle').innerText = 'No Chapter Found';
+                document.getElementById('chapterBody').innerText = 'Please publish a chapter first.';
+            }
+        } else {
+            document.getElementById('chapterTitle').innerText = 'Error';
+            document.getElementById('chapterBody').innerText = 'Failed to load chapter.';
+        }
     });
 });
