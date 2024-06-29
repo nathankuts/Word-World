@@ -21,6 +21,7 @@ function loadNotices() {
 // Load notices when the page loads
 window.onload = loadNotices;
 // Form validation and redirection after signup
+// Form validation and redirection after signup
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const username = document.getElementById('username').value.trim();
