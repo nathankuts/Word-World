@@ -65,15 +65,20 @@ header, footer {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2em;
 }
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 1em;
+  margin: 0.5em 0;
 }
 
 main {
@@ -88,27 +93,27 @@ h1, h3, h4, h5, p {
   margin-bottom: 22px;
 }
 h1 {
-  font-size: 36px;
-  line-height: 44px;
+  font-size: 24px;
+  line-height: 32px;
 }
 h2 {
-  font-size: 24px;
-  line-height: 44px;
+  font-size: 18px;
+  line-height: 26px;
 }
 h3 {
-  font-size: 21px;
-  text-decoration:none;
+  font-size: 16px;
+  text-decoration: none;
 }
 h4 {
-  font-size: 18px;
-  text-decoration:none;
+  font-size: 14px;
+  text-decoration: none;
 }
 h5 {
   color: #164968;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
-  text-decoration:none;
+  text-decoration: none;
 }
 strong {
   font-weight: 400;
@@ -125,49 +130,49 @@ header a,
 /* Style header and footer */
 header .container,
 footer .container {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 0;
 }
 header .logo {
   margin-bottom: 1em; /* Add spacing between logo and navigation */
 }
 header nav {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .user-options {
-    position:absolute;
-    top:3em;
-    margin-left: 70em;
-    display: grid;
-    align-items: center;
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  display: grid;
+  align-items: center;
 }
 .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-right:0em;
-    margin-left:2em;
-    
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 0em;
+  margin-left: 2em;
 }
 
 #signOut {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #signOut:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Ensure the container holds elements side by side */
 .grid {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .teasers {
@@ -244,7 +249,7 @@ header nav {
 }
 
 .chapter-body {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6;
   text-align: justify;
 }
@@ -266,19 +271,50 @@ header nav {
   background-color: #0056b3;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive Styles for larger screens */
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  nav {
+    flex-direction: row;
+    justify-content: center;
+  }
   nav a {
-    display: block;
-    margin: 0.5em 0;
+    display: inline-block;
+    margin: 0 1em;
+  }
+  .grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 21px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .container {
-    width: 95%;
+    width: 80%;
   }
-  form label, form input, form button, form textarea {
-    width: 100%;
+  .profile-pic {
+    margin-right: 1em;
+    margin-left: 3em;
   }
 }
