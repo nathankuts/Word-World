@@ -15,3 +15,7 @@ npm install
 npm start
 
 Navigate to https://wordyworld.000webhostapp.com/
+
+<a href="https://youtu.be/2enlK7oePKQ" target="_blank">
+  <img src="http://img.youtube.com/vi/your-video-id/0.jpg" alt="Watch the video" style="width:100%; height:auto;">
+</a>
