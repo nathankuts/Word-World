@@ -1,5 +1,5 @@
-// Sample data for newly published works
-const newWorks = [
+// Initial sample data for newly published works
+let newWorks = [
     { title: 'The Adventures of Tom', link: 'light-novels.html' },
     { title: 'Mystery in the Woods', link: 'comics.html' },
     { title: 'Love in the Time of Dragons', link: 'light-novels.html' }
@@ -8,6 +8,7 @@ const newWorks = [
 // Function to load notices into the notice board
 function loadNotices() {
     const noticeList = document.getElementById('noticeList');
+    noticeList.innerHTML = ''; // Clear the existing notices
     newWorks.forEach(work => {
         const listItem = document.createElement('li');
         const anchor = document.createElement('a');
@@ -15,12 +16,41 @@ function loadNotices() {
         anchor.textContent = work.title;
         listItem.appendChild(anchor);
         noticeList.appendChild(listItem);
+
+        // Add event listener to highlight the signup button when clicking on a notice
+        anchor.addEventListener('click', highlightSignupButton);
     });
+}
+
+// Function to simulate fetching new data
+function fetchNewData() {
+    // Simulate adding a new work
+    const newWork = { title: `New Work ${new Date().toLocaleTimeString()}`, link: 'light-novels.html' };
+    
+    // Add new work and ensure there are only 3 notices
+    newWorks.push(newWork);
+    if (newWorks.length > 3) {
+        newWorks.shift(); // Remove the oldest work if there are more than 3
+    }
+    loadNotices();
 }
 
 // Load notices when the page loads
 window.onload = loadNotices;
-// Form validation and redirection after signup
+
+// Simulate real-time data fetching every 10 seconds
+setInterval(fetchNewData, 10000);
+
+// Highlight signup button
+function highlightSignupButton(event) {
+    event.preventDefault(); // Prevent the default link action
+    const signupButton = document.getElementById('signupButton');
+    signupButton.classList.add('highlight');
+    signupButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+        signupButton.classList.remove('highlight');
+    }, 3000); // Highlight for 3 seconds
+}
 // Form validation and redirection after signup
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
