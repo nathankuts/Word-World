@@ -5,9 +5,14 @@ Word World is a multi-page app for creative authors and artists. Creatives can u
 Read more about it here.
 
 Run the app locally
+
 Clone the repo
+
 cd word-world
+
 npm install
+
 npm start
+
 Navigate to https://wordyworld.000webhostapp.com/
 
