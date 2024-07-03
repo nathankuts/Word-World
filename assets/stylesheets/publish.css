@@ -288,7 +288,7 @@ header nav {
 .user-options {
     position: absolute;
     top:3em;
-    margin-left: 58em;
+    margin-left: 70em;
     display: grid;
     align-items: center;
     
@@ -404,4 +404,97 @@ header nav {
 
 #uploadPic {
     display: none;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  .user-options {
+    position: relative;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    margin: 0.5em 0;
+  }
+
+  #uploadPicButton {
+    margin-left: 0;
+    margin-top: 0.5em;
+  }
+
+  #signOut {
+    margin-top: 0.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+
+  form label, form input, form button {
+    width: 100%;
+    margin-top: 0.5em;
+  }
+
+  .user-options {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+  }
+
+  .profile-pic {
+    width: 35px;
+    height: 35px;
+  }
+
+  #uploadPicButton,
+  #signOut {
+    font-size: 0.9em;
+  }
+}
+/* Responsive styles for h1 logo and h5 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h5 {
+    font-size: 10px;
+  }
+}
+/* Responsive Styles for Teasers Section */
+@media (max-width: 768px) {
+  .teasers {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .teasers {
+    flex: 1 1 100%;
+    margin: 0;
+  }
 }
