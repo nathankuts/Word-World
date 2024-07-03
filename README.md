@@ -16,4 +16,4 @@ npm start
 
 Navigate to https://wordyworld.000webhostapp.com/
 
-  <img src="http://img.youtube.com/vi/your-video-id/0.jpg" alt="Watch the video" style="width:100%; height:auto;">
+  ![Alt text](https://github.com/nathankuts/Word-World/blob/master/assets/video1216511316.gif?raw=true)
