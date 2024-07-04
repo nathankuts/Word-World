@@ -555,3 +555,62 @@ footer nav a {
 footer nav a:hover {
     text-decoration: underline;
 }
+/* Responsive styles for h1 logo and h5 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h5 {
+    font-size: 10px;
+  }
+}
+/* Responsive Styles for Teasers Section */
+@media (max-width: 768px) {
+  .teasers {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .teasers {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+}
+/* Base styles for navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5em 0;
+    }
+}
